@@ -10,7 +10,7 @@ const MyEvents = () => {
   useEffect(() => {
     const fetchMyEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/events");
+        const res = await axios.get("https://event-management-platform-0r3f.onrender.com/api/events");
         const userEvents = res.data.filter(event => event.host.email === userEmail);
         setEvents(userEvents);
       } catch (err) {
@@ -23,7 +23,7 @@ const MyEvents = () => {
 
   const handleDelete = async (eventId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/events/${eventId}`, {
+      await axios.delete(`https://event-management-platform-0r3f.onrender.com/api/events/${eventId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setEvents(events.filter(event => event._id !== eventId));
