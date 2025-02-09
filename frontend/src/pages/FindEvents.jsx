@@ -9,7 +9,7 @@ const FindEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/events");
+        const res = await axios.get("https://event-management-platform-0r3f.onrender.com/api/events");
         setEvents(res.data);
       } catch (err) {
         console.error("Failed to fetch events:", err);
