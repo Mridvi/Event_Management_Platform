@@ -41,7 +41,7 @@ const CreateEvent = () => {
       });
 
       const response = await axios.post(
-        "http://localhost:5000/api/events/create",
+        "https://event-management-platform-0r3f.onrender.com/api/events/create",
         {
           host: { name: hostName, email: hostEmail, phone: hostPhone },
           name: eventName,
