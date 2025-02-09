@@ -11,7 +11,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://event-management-platform-0r3f.onrender.com/api/auth/register", {
         name,
         email,
         password,
