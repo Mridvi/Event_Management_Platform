@@ -11,7 +11,7 @@ const EditEvent = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/events/${id}`);
+        const res = await axios.get(`https://event-management-platform-0r3f.onrender.com/api/events/${id}`);
         setEvent(res.data);
         setUpdatedData(res.data); // Prefill form with existing data
       } catch (err) {
@@ -25,7 +25,7 @@ const EditEvent = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/events/${id}`, updatedData, {
+      await axios.put(`https://event-management-platform-0r3f.onrender.com/api/events/${id}`, updatedData, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       alert("Event updated successfully!");
