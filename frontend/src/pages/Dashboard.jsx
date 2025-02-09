@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import dashboardImage from "../assets/dashboard-banner.jpg"; 
 
-const socket = io("http://localhost:5000");
+const socket = io("https://event-management-platform-0r3f.onrender.com");
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
@@ -17,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/events");
+        const res = await axios.get("https://event-management-platform-0r3f.onrender.com/api/events");
         setEvents(res.data);
       } catch (err) {
         console.error("Failed to fetch events:", err.response?.data || err.message);
