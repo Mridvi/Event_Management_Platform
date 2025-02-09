@@ -19,12 +19,13 @@ const allowedOrigins = [
   "https://event-management-platform-0r3f.onrender.com"
 ];
 
-
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
-    methods: ["GET", "POST"]
-  }
+    methods: ["GET", "POST"],
+    credentials: true
+  },
+  transports: ["websocket", "polling"], 
 });
 
 
@@ -71,7 +72,6 @@ io.on("connection", (socket) => {
 
 app.use("/api/events", eventRoutes);
 app.use("/api/auth", authRoutes);
-
 
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
